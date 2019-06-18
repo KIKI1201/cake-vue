@@ -18,9 +18,11 @@ import store from "@/core/store/index"
 
 /* eslint-disable no-new */
 new Vue({
+
   el: '#app',
   router,
   store,
   components: { App },
   template: '<App/>'
+
 })
