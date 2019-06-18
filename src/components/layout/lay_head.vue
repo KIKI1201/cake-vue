@@ -68,7 +68,7 @@ export default {
 
   },
   computed:{
-    num() {
+    num() {//取到N
       return this.$store.state.shopCart["N"];
     }
   }

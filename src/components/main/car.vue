@@ -56,34 +56,34 @@ export default {
     }
   },
   mounted() {
-    this.cartList=JSON.parse(sessionStorage.getItem("cartList"))||{};
+    this.cartList=JSON.parse(sessionStorage.getItem("cartList"))|| { "N": 0, "list": [] };
     console.log(this.cartList);
-    this.$store.state.shopCart=JSON.parse(sessionStorage.getItem("cartList"))||{};
+    this.$store.state.shopCart=JSON.parse(sessionStorage.getItem("cartList"))|| { "N": 0, "list": [] };
   }
   ,
   computed:{
-      allPrich(){
-        //计算总价
-        var result = 0;
-        this.checkedNames.map((item)=>{
-          result+=item.CurrentPrice*item.num
+    allPrich(){
+      //计算总价
+      var result = 0;
+      this.checkedNames.map((item)=>{
+        result+=item.CurrentPrice*item.num
 
-        });
+      });
 
-        //设置商品选中与全选的关系
-        if(this.$store.state.shopCart.list.length==0){
-          this.qx=false
+      //设置商品选中与全选的关系
+      if(this.$store.state.shopCart.list.length==0){
+        this.qx=false
+      }else {
+        if(this.checkedNames.length==this.$store.state.shopCart.list.length){
+          this.qx=true
         }else {
-          if(this.checkedNames.length==this.$store.state.shopCart.list.length){
-            this.qx=true
-          }else {
-            this.qx=false
-          }
+          this.qx=false
         }
-
-        return result;//抛出总价
-
       }
+
+      return result;//抛出总价
+
+    }
   },
   methods:{
     //商品图片跳转详情页
@@ -101,11 +101,13 @@ export default {
     minus(item){
       var data=item.id;
       this.$store.commit("minus",data);//调用vuex中的同步方法
+      this.cartList=JSON.parse(sessionStorage.getItem("cartList"))
     },
     //加商品数量
     push(item){
       var data=item.id;
       this.$store.commit("push",data);
+      this.cartList=JSON.parse(sessionStorage.getItem("cartList"))
     },
     //全选,全不选方法
     checkAll(){

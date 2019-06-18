@@ -11,7 +11,7 @@ const state={
 //定义同步方法
 const mutations = {
   vuexInit(state){
-    state.cartList=sessionStorage.getItem("cartList")||[];
+    state.cartList=sessionStorage.getItem("cartList")|| { "N": 0, "list": [] };
 
   },
   // 添加商品信息到vuex的数据中
@@ -66,9 +66,9 @@ const mutations = {
 
 //定义 computed(属性计算)
 const getters={
-  count(state){
-    return state.shopCart.list.length;
-  }
+  // count(state){
+  //   return state.shopCart.list.length;
+  // }
 };
 
 //定义异步方法,可以在这个里面做一些异步操作,比如调用通用数据接口
