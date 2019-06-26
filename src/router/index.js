@@ -27,12 +27,7 @@ const router = new Router({
         meta:{
           keepAlive:false,
         },
-        component: resolve => require(['@/components/main/classify'], resolve),
-        children: [{
-          path: 'childCom',
-          name: 'childCom',
-          component: resolve => require(['@/components/child/childCom'], resolve)
-        }]
+        component: resolve => require(['@/components/main/classify'], resolve)
       },
       {
         path: 'car',
@@ -48,12 +43,19 @@ const router = new Router({
         path: 'info',
         name: 'info',
         component: resolve => require(['@/components/main/info'], resolve),
+
       },
       //详情页
       {
         path: 'show',
         name: 'show',
         component: resolve => require(['@/components/main/show'], resolve),
+      },
+      //客户信息页
+      {
+        path: 'userInfo',
+        name: 'userInfo',
+        component: resolve => require(['@/components/main/userInfo'], resolve)
       }
     ]
   }]

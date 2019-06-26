@@ -7,6 +7,7 @@ Vue.use(Vuex);
 //定义属性值  data
 const state={
   shopCart: { "N": 0, "list": [] },
+  userInfo:""
 };
 //定义同步方法
 const mutations = {
@@ -61,6 +62,10 @@ const mutations = {
 
     });
     sessionStorage.setItem("cartList", JSON.stringify(state.shopCart));
+  },
+  saveUserInfo(state,data){
+    state.userInfo=data;
+    // console.log(state.userInfo);
   }
 };
 

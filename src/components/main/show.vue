@@ -114,7 +114,7 @@
         this.$store.commit("add",data);//把数据添加到vuex中
 
         //先进行添加再进行弹窗
-        //mint-ui弹窗部分使用
+        //mint-ui  confirm弹窗部分使用
         MessageBox.confirm('',{
           title:'提示',
           message:'成功添加到购物车',

@@ -1,5 +1,7 @@
 import request from "./http"
-var url1="/json1811.ashx"
+import mock from "@/mock/mock"
+
+var url1="/json1811.ashx";
 class Apls {
 
   // 获取banner数据
@@ -90,6 +92,16 @@ class Apls {
         v: "1560225194548"
       }
     })
+  }
+
+  //mock模拟接口
+  //注册
+  edit(data){
+    return mock.post("/register",{data})  //固定写法,mock不要在Url后面挂参数 /register?name=msea no
+  }
+  //登录
+  login(data){
+    return mock.post("/login",{data})
   }
 
 

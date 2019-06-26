@@ -61,7 +61,12 @@ export default {
           this.$router.push('/car');
           break;
         case 'info':
-          this.$router.push('/info');
+          if(this.$store.state.userInfo==""){
+            this.$router.push('/info');
+          }else {
+            this.$router.push('/userInfo');
+          }
+
           break;
       }
     }
